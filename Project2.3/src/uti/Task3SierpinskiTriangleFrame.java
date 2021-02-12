@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Task3SierpinskiTriangleFrame extends JFrame {
-	static int r = 0, gr = 0, b = 255;
+	static int r = 135, gr = 38, b = 87;
 
 
 

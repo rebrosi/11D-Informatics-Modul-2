@@ -30,6 +30,11 @@ public class Task2SierpinskiTrianglePanel extends JPanel {
 				g.drawLine(p1.x, p1.y, p2.x, p2.y);
 				g.drawLine(p1.x, p1.y, p3.x, p3.y);
 				g.drawLine(p2.x, p2.y, p3.x, p3.y);
+				
+				int x[] = {p1.x, p2.x, p3.x};
+				int y[] = {p1.y, p2.y, p3.y};
+				int nPoints = x.length;
+				g.fillPolygon(x, y, nPoints);
 			} else {
 				// Get the midpoint on each edge of the triangle
 				Point p12 = midpoint(p1, p2);

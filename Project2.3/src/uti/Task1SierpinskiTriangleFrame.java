@@ -10,26 +10,35 @@ import javax.swing.*;
 
 public class Task1SierpinskiTriangleFrame extends JFrame {
 	static int r = 0, gr = 0, b = 255;
-
-
-
-	private JTextField jtfOrder = new JTextField("0", 5); // Order
+	static int order = 0;
+	
+	private JButton PlusOrder = new JButton("+");
+	private JButton MinusOrder = new JButton("-");
 	private Task1SierpinskiTrianglePanel trianglePanel = new Task1SierpinskiTrianglePanel(); // To display the pattern
 
 	public Task1SierpinskiTriangleFrame() {
 // Panel to hold label, text field, and a button
 		JPanel panel = new JPanel();
-		panel.add(new JLabel("Enter an order: "));
-		panel.add(jtfOrder);
-		jtfOrder.setHorizontalAlignment(SwingConstants.RIGHT);
+		panel.add(PlusOrder);
+		panel.add(MinusOrder);
+		PlusOrder.setHorizontalAlignment(SwingConstants.LEFT);
+		MinusOrder.setHorizontalAlignment(SwingConstants.RIGHT);
 // Add a Sierpinski triangle panel to the frame
 		add(trianglePanel);
 		add(panel, BorderLayout.SOUTH);
 // Register a listener
-		jtfOrder.addActionListener(new ActionListener() {
+		PlusOrder.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				trianglePanel.setOrder(Integer.parseInt(jtfOrder.getText()));
+				order++;
+				trianglePanel.setOrder(order);
+			}
+		});
+		MinusOrder.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				order--;
+				trianglePanel.setOrder(order);
 			}
 		});
 
