@@ -10,17 +10,14 @@ public class TailRecursion3 {
 		System.out.println("Enter n");
 		int n = sc.nextInt();
 		System.out.println(powRecursive(x,n));
-		System.out.println(optimizedPowRecursive(x,n,1));
+		//System.out.println(optimizedPowRecursive(x,n,1));
 	}
 
 	public static int powRecursive(int x, int n) {
-		if (n == 0) {
-			return 1;
-		}
 
-		return x * powRecursive(x, n - 1);
+		return optimizedPowRecursive(x, n, 1);
 	}
-	public static int optimizedPowRecursive(int x, int n, int result) {
+	private static int optimizedPowRecursive(int x, int n, int result) {
 		if (n == 0) {
 			return result;
 		}

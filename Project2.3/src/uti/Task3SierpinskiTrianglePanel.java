@@ -34,7 +34,7 @@ public class Task3SierpinskiTrianglePanel extends JPanel {
 				int x[] = {p1.x, p2.x, p3.x};
 				int y[] = {p1.y, p2.y, p3.y};
 				int nPoints = x.length;
-				if (r <= 256 && gr <= 256 && b <= 256) {
+				if (r <= 254 && gr <= 254 && b <= 254) {
 					r++;
 					gr++;
 					b++;
