@@ -22,7 +22,7 @@ public class Task1GenericStack<E> {
 				newList[i] = list[i];
 			}
 		} else {
-			list[++size] = o;
+			list[size++] = o;
 		}
 	}
 
