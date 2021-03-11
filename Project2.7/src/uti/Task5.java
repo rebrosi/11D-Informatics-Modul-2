@@ -9,12 +9,12 @@ public class Task5 {
     {
     Random rnd = new Random();
     LinkedList<Integer> list = new LinkedList<Integer>();
-    for(int i = 0; i < 5000000; i++) {
+    for(int i = 0; i < 500000; i++) {
     	list.add(rnd.nextInt());
     }
     Integer value = new Integer(0);
     long start = System.currentTimeMillis();
-    for(int i = 0; i < 5000000; i++) {
+    for(int i = 0; i < 500000; i++) {
     	value = list.get(i);
     }
     long stop = System.currentTimeMillis();

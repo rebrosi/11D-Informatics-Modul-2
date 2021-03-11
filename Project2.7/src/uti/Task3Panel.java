@@ -36,7 +36,6 @@ public class Task3Panel extends JPanel {
 		add(shuffle, BorderLayout.CENTER);
 		add(reverse, BorderLayout.LINE_END);
 		
-		//Task3LinkedList list = new Task3LinkedList();
 		LinkedList<String> linkedList = new LinkedList<String>();
 		in.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
