@@ -46,7 +46,7 @@ public class Task2 {
 				}
 			}
 		}
-		if(areTheBracketsRight) {
+		if(areTheBracketsRight && brackets.isEmpty()) {
 			System.out.println("Right brackets");
 		} else {
 			System.out.println("Wrong brackets");

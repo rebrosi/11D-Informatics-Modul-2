@@ -41,8 +41,8 @@ class Task3MultiBallPanel extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		for (int i = 0; i < queue.size(); i++) {
-			Task3MultiBall ball = (Task3MultiBall) queue.get(i); // Get a ball
+		for (Task3MultiBall ball : queue) {
+			//Task3MultiBall ball = (Task3MultiBall) queue.get(i); // Get a ball
 			g.setColor(ball.color); // Set ball color
 			// Check boundaries
 			if (ball.x < 0 || ball.x > getWidth())
