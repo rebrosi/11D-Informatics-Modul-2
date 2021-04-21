@@ -23,6 +23,7 @@ class SortingPanel extends JPanel {
 	private static int compareStage = 2; // show j and j+1
 	private static int switchStage = 3;
 	private static int isSortedStage = 4;
+	boolean needNextStep = true;
 
 	private int stage = noSortingStage;
 
@@ -34,27 +35,34 @@ class SortingPanel extends JPanel {
 	}
 
 	public void nextStepInSorting() {
-		if (stage == isSortedStage) {
-			return;
-		}
+		if (needNextStep) {
+			if (stage == isSortedStage) {
+				needNextStep = false;
+				return;
+			}
 
-		if (stage == noSortingStage) {
-			stage = incrementIStage; // Initializing stage, continue directly to next stage
-		}
+			if (stage == noSortingStage) {
+				stage = incrementIStage; // Initializing stage, continue directly to next stage
+				needNextStep = true;
+			}
 
-		if (stage == incrementIStage) {
-			currentI++;
-			stage = incrementJStage; // Initializing stage, continue directly to next stage
-		}
+			if (stage == incrementIStage) {
+				currentI++;
+				stage = incrementJStage; // Initializing stage, continue directly to next stage
+				needNextStep = true;
+			}
 
-		if (stage == incrementJStage) {
-			currentJ++;
-		} else if (stage == switchStage) {
-			Integer numberJ = numbers.get(currentJ);
-			Integer numberJPlus1 = numbers.get(currentJ + 1);
-			if (numberJ > numberJPlus1) {
-				numbers.set(currentJ + 1, numberJ);
-				numbers.set(currentJ, numberJPlus1);
+			if (stage == incrementJStage) {
+				currentJ++;
+				needNextStep = true;
+			} else if (stage == switchStage) {
+				Integer numberJ = numbers.get(currentJ);
+				Integer numberJPlus1 = numbers.get(currentJ + 1);
+				if (numberJ > numberJPlus1) {
+					numbers.set(currentJ + 1, numberJ);
+					numbers.set(currentJ, numberJPlus1);
+					needNextStep = true;
+				}
 			}
 		}
 
