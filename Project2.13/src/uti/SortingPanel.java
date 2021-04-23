@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 class SortingPanel extends JPanel {
 
-	private ArrayList<Integer> numbers = new ArrayList(Arrays.asList(5, 4, 3, 2, 1));
+	private ArrayList<Integer> numbers = new ArrayList(Arrays.asList(1, 2, 3, 4, 5));
 
 	private static int noSortingStage = -1;
 	private static int incrementIStage = 0; // not visible on animation
@@ -23,7 +23,7 @@ class SortingPanel extends JPanel {
 	private static int compareStage = 2; // show j and j+1
 	private static int switchStage = 3;
 	private static int isSortedStage = 4;
-	boolean needNextStep = true;
+	boolean needNextStep = false;
 
 	private int stage = noSortingStage;
 
@@ -35,26 +35,22 @@ class SortingPanel extends JPanel {
 	}
 
 	public void nextStepInSorting() {
-		if (needNextStep) {
 			if (stage == isSortedStage) {
-				needNextStep = false;
 				return;
 			}
 
 			if (stage == noSortingStage) {
 				stage = incrementIStage; // Initializing stage, continue directly to next stage
-				needNextStep = true;
 			}
 
 			if (stage == incrementIStage) {
 				currentI++;
+				needNextStep = false;
 				stage = incrementJStage; // Initializing stage, continue directly to next stage
-				needNextStep = true;
 			}
 
 			if (stage == incrementJStage) {
 				currentJ++;
-				needNextStep = true;
 			} else if (stage == switchStage) {
 				Integer numberJ = numbers.get(currentJ);
 				Integer numberJPlus1 = numbers.get(currentJ + 1);
@@ -64,7 +60,7 @@ class SortingPanel extends JPanel {
 					needNextStep = true;
 				}
 			}
-		}
+
 
 		repaint();
 
@@ -83,7 +79,7 @@ class SortingPanel extends JPanel {
 				currentJ = -1; // finished comparing all pair for this iteration of i
 				System.out.println(currentI);
 				// allows i++ only when i will not get greater than  numbers.size() - 2 (the last valid option) 
-				if (currentI < numbers.size() - 2) {
+				if (currentI < numbers.size() - 2 && needNextStep) {
 					stage = incrementIStage; // next i
 
 				} else {
